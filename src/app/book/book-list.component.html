@@ -1,0 +1,59 @@
+<div class="card">
+  <div class="card-header">
+    {{ pageTitle }}
+  </div>
+  <div class="card-body">
+    <div class="row">
+      <div class="col-md-2">Filter by:</div>
+      <div class="col-md-4">
+        <input type="text" [(ngModel)]="listFilter" />
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-md-6" *ngIf="listFilter">
+        <h4>Filtered by: {{ listFilter }}</h4>
+      </div>
+    </div>
+    <div class="table-responsive">
+      <table class="table" *ngIf="books && books.length">
+        <thead>
+          <tr>
+            <th>Book Image</th>
+            <th>Book Name</th>
+            <th>ISBN</th>
+            <th>Description</th>
+            <th>Author</th>
+            <th>Category</th>
+            <th>Edition</th>
+            <th>Price</th>
+            <th>Rating</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let book of filteredBooks">
+            <td>
+              <img
+                [src]="book.thumbnailUrl"
+                [title]="book.title"
+                [style.width.px]="imageWidth"
+                [style.margin.px]="imageMargin"
+              />
+            </td>
+            <td>
+              <a [routerLink]="['/books', book.id]">
+                {{ book.title }}
+              </a>
+            </td>
+            <td>{{ book.isbn }}</td>
+            <td>{{ book.shortDescription }}</td>
+            <td>{{ book.author }}</td>
+            <td>{{ book.category }}</td>
+            <td>{{ book.edition }}</td>
+            <td>{{ book.price | currency: "INR":"symbol":"1.2-2" }}</td>
+            <td><bs-star [rating]="book.rating"></bs-star></td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</div>
