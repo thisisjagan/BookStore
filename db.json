@@ -90,6 +90,11 @@
       "edition": "222nd Edition",
       "rating": 1,
       "id": 7
+    },
+    {
+      "id": 8
     }
-  ]
+  ],
+  "users": [],
+  "admins": []
 }
