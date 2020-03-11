@@ -1,6 +1,6 @@
 <div class="card">
   <div class="class-header">
-    Add Book
+    Edit Book
   </div>
   <div class="card-body">
     <div class="form-group">
@@ -8,13 +8,21 @@
         <div class="row">
           <div class="col-md-4">Name:</div>
           <div class="col-md-8">
-            <input type="text" class="form-control" [(ngModel)] ="bookInfo.title"/><br />
+            <input
+              type="text"
+              class="form-control"
+              [(ngModel)]="bookInfo.title"
+            /><br />
           </div>
         </div>
         <div class="row">
           <div class="col-md-4">ISBN:</div>
           <div class="col-md-8">
-            <input type="text" class="form-control" [(ngModel)] ="bookInfo.isbn"/><br />
+            <input
+              type="text"
+              class="form-control"
+              [(ngModel)]="bookInfo.isbn"
+            /><br />
           </div>
         </div>
         <div class="row">
@@ -25,7 +33,7 @@
               cols="60"
               name="description"
               class="form-control"
-              [(ngModel)] = "bookInfo.shortDescription"
+              [(ngModel)]="bookInfo.shortDescription"
             ></textarea
             ><br />
           </div>
@@ -46,43 +54,68 @@
         <div class="row">
           <div class="col-md-4">Author:</div>
           <div class="col-md-8">
-            <input type="text" class="form-control" [(ngModel)]="bookInfo.author"/><br />
+            <input
+              type="text"
+              class="form-control"
+              [(ngModel)]="bookInfo.author"
+            /><br />
           </div>
         </div>
         <div class="row">
           <div class="col-md-4">Category:</div>
           <div class="col-md-8">
-            <input type="text" class="form-control" [(ngModel)]="bookInfo.category"/><br />
+            <input
+              type="text"
+              class="form-control"
+              [(ngModel)]="bookInfo.category"
+            /><br />
           </div>
         </div>
         <div class="row">
           <div class="col-md-4">Edition:</div>
           <div class="col-md-8">
-            <input type="text" class="form-control" [(ngModel)]="bookInfo.edition"/><br />
+            <input
+              type="text"
+              class="form-control"
+              [(ngModel)]="bookInfo.edition"
+            /><br />
           </div>
         </div>
         <div class="row">
           <div class="col-md-4">Price:</div>
           <div class="col-md-8">
-            <input type="text" class="form-control" [(ngModel)]="bookInfo.price"/><br />
+            <input
+              type="text"
+              class="form-control"
+              [(ngModel)]="bookInfo.price"
+            /><br />
           </div>
         </div>
         <div class="row">
           <div class="col-md-4">Rating:</div>
           <div class="col-md-8">
-            <input type="text" class="form-control" [(ngModel)]="bookInfo.rating"/><br />
+            <input
+              type="text"
+              class="form-control"
+              [(ngModel)]="bookInfo.rating"
+            /><br />
           </div>
         </div>
         <div class="row">
           <div class="col-md-4">Image:</div>
           <div class="col-md-8">
-            <input type="text" class="form-control" [(ngModel)]="bookInfo.thumbnailUrl"/><br />
+            <input
+              type="text"
+              class="form-control"
+              [(ngModel)]="bookInfo.thumbnailUrl"
+            /><br />
           </div>
         </div>
         <div class="row">
           <div class="col-md-4"></div>
           <div class="col-md-8" align="right">
-            <button class="btn btn-primary" (click)="onClick()">Submit</button>
+            <button style="margin:15px;" class="btn btn-primary" (click)="onClick(bookInfo.id)">Save</button>
+            <button style="margin:15px;" class="btn btn-primary" (click)="onBack()">Cancel</button>
           </div>
         </div>
       </div>

@@ -27,6 +27,8 @@
             <th>Edition</th>
             <th>Price</th>
             <th>Rating</th>
+            <th *ngIf="isLoggedIn">Edit</th>
+            <th *ngIf="isLoggedIn">Delete</th>
           </tr>
         </thead>
         <tbody>
@@ -51,6 +53,8 @@
             <td>{{ book.edition }}</td>
             <td>{{ book.price | currency: "INR":"symbol":"1.2-2" }}</td>
             <td><bs-star [rating]="book.rating"></bs-star></td>
+            <td *ngIf="isLoggedIn"><button (click)="editBook(book.id)">Edit</button></td>
+            <td *ngIf="isLoggedIn"><button (click)="deleteBook(book.id)">Delete</button></td>
           </tr>
         </tbody>
       </table>
