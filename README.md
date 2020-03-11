@@ -1,6 +1,16 @@
 # BookStore
 
-This project was built on Angular version 8.3.25. 
+This project was built on Angular version 8.3.25. This app has the following pages.
+
+Welcome
+Book List
+Book Details
+Add Book (Admin only screen and Login required)
+Edit Book (Admin only screen and Login required)
+
+Login is managed in browser's session and since this is a basic app, it creates a session variable and uses it for validating. Use admin and admin as username and password to login. 
+
+This application is capable of addition of new books, update and deletion of existing books.
 
 ## Development server
 
