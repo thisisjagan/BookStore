@@ -13,6 +13,8 @@ import { BookDetailGuard } from './book/book-detail.guard';
 import { AdminLoginComponent } from './admin/admin-login/admin-login.component';
 import { AdminAddBooksComponent } from './admin/admin-add-books/admin-add-books.component';
 import { AdminAddBooksGuard } from './admin/admin-add-books/admin-add-books.guard';
+import { AdminEditBooksComponent } from './admin/admin-edit/admin-edit-books.component';
+import { AdminEditBookGuard } from './admin/admin-edit/admin-edit-book.guard';
 
 @NgModule({
   declarations: [
@@ -22,7 +24,8 @@ import { AdminAddBooksGuard } from './admin/admin-add-books/admin-add-books.guar
     BookDetailComponent,
     WelcomeComponent,
     AdminLoginComponent,
-    AdminAddBooksComponent
+    AdminAddBooksComponent,
+    AdminEditBooksComponent
   ],
   imports: [
     BrowserModule,
@@ -35,12 +38,17 @@ import { AdminAddBooksGuard } from './admin/admin-add-books/admin-add-books.guar
         canActivate: [BookDetailGuard],
         component: BookDetailComponent
       },
-      { path: 'welcome', component: WelcomeComponent },
-      { path: 'adminLogin', component: AdminLoginComponent },
+      { path: 'welcome', component: WelcomeComponent },      
       {
         path: 'addBooks',
         canActivate: [AdminAddBooksGuard],
         component: AdminAddBooksComponent
+      },
+      { path: 'adminLogin', component: AdminLoginComponent },
+      { 
+        path: 'editBooks/:id', 
+        canActivate: [AdminEditBookGuard],
+        component: AdminEditBooksComponent
       },
       { path: '', redirectTo: 'welcome', pathMatch: 'full' },
       { path: '**', redirectTo: 'welcome', pathMatch: 'full' }

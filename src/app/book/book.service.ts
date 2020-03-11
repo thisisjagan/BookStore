@@ -11,7 +11,7 @@ export class BookService{
     private bookUrl: string = 'http://localhost:3004/books';
     constructor(private http: HttpClient){}
     getBooks(): Observable<IBooks[]> {
-        return this.http.get<IBooks[]>(this.bookUrl).pipe(tap(data => console.log('All: ' + JSON.stringify(data))),catchError(this.handleError)
+        return this.http.get<IBooks[]>(this.bookUrl).pipe(tap(data => data),catchError(this.handleError)
         );
     }
 
@@ -21,6 +21,14 @@ export class BookService{
 
     addBook(book: IBooks):Observable<IBooks>{
         return this.http.post<IBooks>(this.bookUrl,book);
+    }
+
+    editBook(id:number, book: IBooks):Observable<IBooks>{
+        return this.http.put<IBooks>(this.bookUrl+'/'+id,book).pipe(catchError(this.handleError));
+    }
+
+    deleteBook(id: number):Observable<IBooks[]>{
+        return this.http.delete<IBooks[]>(this.bookUrl+'/'+id).pipe(catchError(this.handleError));
     }
 
     private handleError(err: HttpErrorResponse){
